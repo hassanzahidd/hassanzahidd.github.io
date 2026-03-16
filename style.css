@@ -440,6 +440,23 @@ section h2::after {
   border: 1px solid var(--md-sys-color-outline);
 }
 
+.btn-card-action {
+  margin-top: 24px;
+  width: 100%;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-outline);
+  padding: 10px 20px;
+  font-size: 0.9em;
+}
+
+.btn-card-action:hover {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
 /* Contact Section */
 .contact {
   background: transparent;
