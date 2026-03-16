@@ -367,17 +367,43 @@ section h2::after {
 .project-card {
   background: var(--md-sys-color-surface-container-low);
   border-radius: var(--md-sys-radius-xl);
-  padding: 28px;
   border: 1px solid var(--md-sys-color-surface-variant);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Ensure banner corners are clipped */
 }
 
 .project-card:hover {
   transform: translateY(-8px);
   background: var(--md-sys-color-surface-container);
   box-shadow: var(--md-sys-elevation-2);
+}
+
+.project-banner {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  background: var(--md-sys-color-surface-container-high);
+}
+
+.project-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-banner img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .project-header {
