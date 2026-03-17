@@ -15,6 +15,11 @@
 </head>
 
 <body>
+  <div class="bg-canvas">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+  </div>
   <header>
     <nav class="navbar">
       <div class="container nav-container">
@@ -30,7 +35,7 @@
     </nav>
   </header>
 
-  <section id="home" class="hero">
+  <section id="home" class="hero reveal">
     <div class="hero-bg-overlay"></div>
     <div class="container">
       <div class="hero-content">
@@ -53,7 +58,7 @@
     </div>
   </section>
 
-  <section id="about" class="about">
+  <section id="about" class="about reveal">
     <div class="container">
       <h2>About Me</h2>
       <div class="about-content">
@@ -67,12 +72,12 @@
     </div>
   </section>
 
-  <section id="skills" class="skills">
+  <section id="skills" class="skills reveal">
     <div class="container">
       <h2>Technical Skills</h2>
-      <div class="skills-categories">
-        <div class="skill-category">
-          <h3><span class="material-symbols-outlined">devices</span>Mobile & Frameworks</h3>
+      <div class="skills-categories bento-grid">
+        <div class="skill-category spotlight-card reveal">
+          <h3>Development</h3>
           <div class="skills-list">
             <span class="skill-tag">Kotlin</span>
             <span class="skill-tag">Compose UI</span>
@@ -82,8 +87,8 @@
             <span class="skill-tag">Android SDK</span>
           </div>
         </div>
-        <div class="skill-category">
-          <h3><span class="material-symbols-outlined">database</span>Mobile Databases</h3>
+        <div class="skill-category spotlight-card reveal">
+          <h3>Databases</h3>
           <div class="skills-list">
             <span class="skill-tag">MySQL</span>
             <span class="skill-tag">MongoDB</span>
@@ -91,8 +96,8 @@
             <span class="skill-tag">Room</span>
           </div>
         </div>
-        <div class="skill-category">
-          <h3><span class="material-symbols-outlined">architecture</span>Architecture & Tools</h3>
+        <div class="skill-category spotlight-card reveal">
+          <h3>Systems</h3>
           <div class="skills-list">
             <span class="skill-tag">Multi-Module Architecture</span>
             <span class="skill-tag">MVC</span>
@@ -108,22 +113,18 @@
     </div>
   </section>
 
-  <section id="projects" class="projects">
+  <section id="projects" class="projects reveal">
     <div class="container">
       <h2>Featured Projects</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <div class="project-banner">
-            <img src="my-anntac-banner.png" alt="My Anntac Project Banner">
-          </div>
           <div class="project-content">
+            <div class="project-accent-title">Native Android</div>
             <div class="project-header">
               <h3>My Anntac</h3>
-              <div class="platform-badge android">
-                <span class="material-symbols-outlined">android</span>
-                <span>Native</span>
-              </div>
             </div>
+            <div class="project-divider"></div>
+            <p class="project-tagline">Secure Scanning. Intelligent Archiving.</p>
             <p class="project-description">A Jetpack Compose Android app for document scanning and secure backend
               archiving — featuring offline queuing, multi-page scanning, and profile-based upload management.</p>
             <div class="project-tech">
@@ -134,21 +135,21 @@
             </div>
             <a href="project-myanntac.html" class="btn btn-card-action">View Case Study</a>
           </div>
+          <div class="project-visual">
+            <img src="my-anntac-banner.png" alt="My Anntac Project">
+          </div>
         </div>
 
         <div class="project-card">
-          <div class="project-banner">
-            <img src="studybridge-banner.png" alt="StudyBridge Project Banner">
-          </div>
           <div class="project-content">
+            <div class="project-accent-title">Cross-Platform</div>
             <div class="project-header">
               <h3>StudyBridge</h3>
-              <div class="platform-badge flutter">
-                <span class="material-symbols-outlined">flutter</span>
-                <span style="font-family: 'Outfit', sans-serif">Flutter</span>
-              </div>
             </div>
-            <p class="project-description">Cross-platform Flutter app delivering university and scholarship guidance with
+            <div class="project-divider"></div>
+            <p class="project-tagline">Navigating Futures. Simplified.</p>
+            <p class="project-description">Cross-platform Flutter app delivering university and scholarship guidance
+              with
               backend services and Stripe payments.</p>
             <div class="project-tech">
               <span class="tech-tag">Flutter</span>
@@ -157,20 +158,19 @@
               <span class="tech-tag">Stripe</span>
             </div>
           </div>
+          <div class="project-visual">
+            <img src="studybridge-banner.png" alt="StudyBridge Project">
+          </div>
         </div>
 
         <div class="project-card">
-          <div class="project-banner">
-            <img src="Hablillah-banner.png" alt="Hablillah Project Banner">
-          </div>
           <div class="project-content">
+            <div class="project-accent-title">Cross-Platform</div>
             <div class="project-header">
               <h3>Hablillah</h3>
-              <div class="platform-badge flutter">
-                <span class="material-symbols-outlined">flutter</span>
-                <span style="font-family: 'Outfit', sans-serif">Flutter</span>
-              </div>
             </div>
+            <div class="project-divider"></div>
+            <p class="project-tagline">Education Management. Reimagined.</p>
             <p class="project-description">Flutter-based student–teacher management app featuring role-based access,
               Firebase auth, quizzes, and attendance tracking.</p>
             <div class="project-tech">
@@ -179,18 +179,22 @@
               <span class="tech-tag">Auth</span>
             </div>
           </div>
+          <div class="project-visual">
+            <img src="Hablillah-banner.png" alt="Hablillah Project">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="contact" class="contact reveal">
     <div class="container">
-      <h2>Get In Touch</h2>
-      <p class="contact-intro">I'm always interested in hearing about new projects and opportunities.</p>
-
-      <div class="contact-methods">
-        <a href="mailto:hassanzahidd@proton.me" class="contact-card email">
+      <div class="contact-header">
+        <h2>Get In Touch</h2>
+        <p>I'm always interested in hearing about new projects and opportunities.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:hassanzahidd@proton.me" class="contact-card reveal">
           <img src="protonMail.svg" alt="Proton Mail" class="brand-icon">
           <h4>Email</h4>
           <p>hassanzahidd@proton.me</p>
@@ -218,6 +222,7 @@
       <p>© 2026 Hassan Zahid. All rights reserved.</p>
     </div>
   </footer>
+  <script src="script.js"></script>
 </body>
 
 </html>
