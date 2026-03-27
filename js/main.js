@@ -40,10 +40,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
     // Smooth scroll for nav links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
+            
+            // Close mobile menu on click
+            if (mobileMenu && mobileMenu.classList.contains('is-active')) {
+                mobileMenu.classList.remove('is-active');
+                navMenu.classList.remove('active');
+            }
+
             const targetId = link.getAttribute('href');
             const targetElement = document.querySelector(targetId);
             if (targetElement) {

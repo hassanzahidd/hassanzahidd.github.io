@@ -1906,6 +1906,43 @@
         display: none;
       }
     }
+  
+    /* RESPONSIVE ADDITIONS */
+    @media (max-width: 1024px) {
+      #s1 .inner, #s2 .inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+      #s1 .eyebrow, #s2 .intro {
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+      #s1 .eyebrow::before { display: none; }
+      #s1 .phones-hero, #s2 .right {
+        margin: 0 auto;
+      }
+      #s3 .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      #s1, #s2, #s3, #s4 { padding: 60px 24px; }
+      #s1 h1 { font-size: clamp(40px, 12vw, 56px); }
+      #s1 .arabic { font-size: clamp(22px, 6vw, 28px); }
+      #s2 .deco { font-size: 140px; right: 0; top: 0; }
+      #s2 h2, #s3 .hd h2, #s4 .hd h2 { font-size: clamp(26px, 8vw, 36px); }
+      #s3 .stats { grid-template-columns: 1fr; gap: 20px; }
+      #s4 .row { flex-direction: column; }
+      #s4 .pc { transform: none !important; }
+      #s4 .pc .ph-item { width: 220px; }
+      .phones-hero {
+        transform: scale(0.75);
+        transform-origin: top center;
+        margin-bottom: -150px;
+      }
+    }
+
   </style>
 </head>
 
