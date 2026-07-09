@@ -215,7 +215,7 @@
 
 .certification-provider {
   font-size: var(--md-sys-typescale-body-medium-size);
-  color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-primary);
   font-weight: 500;
   margin-bottom: 4px;
 }
@@ -285,7 +285,7 @@
 
 .education-degree {
   font-size: var(--md-sys-typescale-title-medium-size);
-  color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-primary);
   font-weight: 500;
   margin-bottom: 4px;
 }

@@ -30,7 +30,7 @@
   border-radius: inherit;
   background: radial-gradient(
     500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(0, 209, 193, 0.09),
+    rgba(126, 217, 87, 0.12),
     transparent 45%
   );
   opacity: 0;
@@ -56,32 +56,14 @@
   gap: 6px;
   padding: 6px 16px;
   border-radius: var(--md-sys-shape-corner-small);
-  font-size: var(--md-sys-typescale-label-large-size);
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.006em;
   line-height: 20px;
-  border: 1px solid var(--md-sys-color-outline);
+  background-color: #1F5C63;
+  color: #E5F9E0;
+  border: 1px solid #1F5C63;
   cursor: default;
-  transition:
-    background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
-    color            var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
-    border-color     var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
-}
-
-.skill-tag {
-  background: transparent;
-  color: var(--md-sys-color-on-surface-variant);
-}
-.skill-tag:hover {
-  background: color-mix(in srgb, var(--md-sys-color-primary) 12%, transparent);
-  color: var(--md-sys-color-primary);
-  border-color: var(--md-sys-color-primary);
-}
-
-.tech-tag {
-  background: var(--md-sys-color-surface-container-high);
-  color: var(--md-sys-color-secondary);
-  border-color: var(--md-sys-color-outline-variant);
 }
 
 /* ── MD3 Divider ─────────────────────────────────────────── */

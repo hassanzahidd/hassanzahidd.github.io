@@ -2,10 +2,15 @@
 
 /* ── Animated Background Canvas ──────────────────────────── */
 .bg-canvas {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  top: 104px;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
   z-index: -1;
-  background: var(--md-sys-color-surface);
+  background: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 28px;
   overflow: hidden;
 }
 
@@ -24,7 +29,7 @@
 }
 .orb-2 {
   width: 38vw; height: 38vw;
-  background: radial-gradient(circle, #4F46E5 0%, transparent 68%);
+  background: radial-gradient(circle, #7ED957 0%, transparent 68%);
   bottom: -8%; right: -8%;
   animation-delay: -7s;
 }
@@ -51,6 +56,7 @@ header {
   width: 100%;
   z-index: 1000;
   border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 0 0 24px 24px;
   /* MD3 elevation-2 tonal shadow for sticky nav */
   box-shadow: var(--md-sys-elevation-2);
 }
@@ -59,7 +65,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px; /* MD3 top app bar height */
+  height: 80px; /* MD3 top app bar height */
 }
 
 /* MD3 Logo — treated as a Navigation Brand */
@@ -81,7 +87,7 @@ header {
 /* MD3 Nav destination — pill indicator on hover/active */
 .nav-link {
   display: block;
-  color: var(--md-sys-color-on-surface-variant);
+  color: #2E2E2E;
   text-decoration: none;
   font-size: var(--md-sys-typescale-label-large-size);
   font-weight: 500;
@@ -95,8 +101,8 @@ header {
 }
 
 .nav-link:hover {
-  color: var(--md-sys-color-on-surface);
-  background: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent);
+  color: var(--md-sys-color-primary);
+  background: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
 }
 
 .nav-link.active {
@@ -173,9 +179,9 @@ header {
 
 /* ── MD3 Footer ────────────────────────────────────────────── */
 footer {
-  background: var(--md-sys-color-surface-container-low);
-  border-top: 1px solid var(--md-sys-color-outline-variant);
-  color: var(--md-sys-color-on-surface-variant);
+  background: var(--md-sys-color-primary);
+  border-top: none;
+  color: #E6E8E7;
   text-align: center;
   padding: 48px 24px;
   font-size: var(--md-sys-typescale-body-medium-size);
@@ -183,6 +189,6 @@ footer {
 }
 
 footer p {
-  color: var(--md-sys-color-on-surface-variant);
+  color: #E6E8E7;
   letter-spacing: 0.25px;
 }

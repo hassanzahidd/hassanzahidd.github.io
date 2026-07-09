@@ -9,7 +9,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: 112px;
 }
 
 .hero-bg-overlay { display: none; }
@@ -53,12 +53,10 @@
   letter-spacing: -0.01em;
 }
 
-/* MD3 color-on-gradient text */
 .text-gradient {
-  background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, #84CFCA 60%, var(--md-sys-color-tertiary) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--md-sys-color-primary);
+  background: none;
+  -webkit-text-fill-color: var(--md-sys-color-primary);
 }
 
 .description {
@@ -97,7 +95,9 @@
   overflow: hidden;
   transition:
     box-shadow var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
-    background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+    background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    border-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
   /* State layer */
 }
 .btn::after {
@@ -121,6 +121,8 @@
   box-shadow: var(--md-sys-elevation-0);
 }
 .btn-primary:hover {
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-primary);
   box-shadow: var(--md-sys-elevation-1);
 }
 .btn-primary:active {
@@ -131,10 +133,12 @@
 .btn-secondary {
   background-color: transparent;
   color: var(--md-sys-color-primary);
-  border: 1px solid var(--md-sys-color-outline);
+  border: 1.5px solid var(--md-sys-color-primary);
 }
 .btn-secondary:hover {
-  background-color: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
+  color: var(--md-sys-color-secondary);
+  border-color: var(--md-sys-color-secondary);
+  background-color: rgba(126, 217, 87, 0.08);
 }
 
 /* Filled large variant */
@@ -165,6 +169,7 @@
 /* ── Section heading defaults ────────────────────────────── */
 section {
   padding: var(--spacing-section) 0;
+  scroll-margin-top: 96px; /* offset for fixed navbar (80px) + breathing room */
 }
 
 section h2 {
@@ -183,7 +188,7 @@ section h2::after {
   background: var(--md-sys-color-surface-container);
   border: 1px solid var(--md-sys-color-outline-variant);
   border-radius: var(--md-sys-shape-corner-extra-large);
-  margin: 40px 0;
+  margin: 40px 24px;
   padding: 56px 48px;
   box-shadow: var(--md-sys-elevation-1);
 }
@@ -279,7 +284,7 @@ section h2::after {
 
 /* MD3 "Tertiary" accent for project type label */
 .project-accent-title {
-  color: var(--md-sys-color-tertiary);
+  color: var(--md-sys-color-primary);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -389,7 +394,9 @@ section h2::after {
   overflow: hidden;
   box-shadow: var(--md-sys-elevation-1);
   transition:
-    box-shadow var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+    box-shadow var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    color            var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
   margin-top: auto;
 }
 .btn-card-action::after {
@@ -402,8 +409,12 @@ section h2::after {
   border-radius: inherit;
   pointer-events: none;
 }
-.btn-card-action:hover { box-shadow: var(--md-sys-elevation-2); }
-.btn-card-action:hover::after  { opacity: 0.08; }
+.btn-card-action:hover {
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-primary);
+  box-shadow: var(--md-sys-elevation-2);
+}
+.btn-card-action:hover::after  { opacity: 0; }
 .btn-card-action:active::after { opacity: 0.16; }
 
 /* ── Contact Section ─────────────────────────────────────── */
@@ -455,23 +466,11 @@ section h2::after {
   isolation: isolate;
 }
 
-/* State layer */
-.contact-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--md-sys-color-primary);
-  opacity: 0;
-  transition: opacity var(--md-sys-motion-duration-short-3) var(--md-sys-motion-easing-standard);
-  border-radius: inherit;
-  pointer-events: none;
-}
 .contact-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   box-shadow: var(--md-sys-elevation-3);
   border-color: var(--md-sys-color-primary);
 }
-.contact-card:hover::after { opacity: 0.05; }
 
 /* Icon container — MD3 "Icon container" pattern */
 .contact-card-icon {
@@ -532,6 +531,52 @@ section h2::after {
   text-align: center;
   margin-top: 64px;
 }
+
+/* ── Email copy hint label ────────────────────────────────── */
+.copy-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--md-sys-typescale-label-medium-size);
+  color: var(--md-sys-color-on-surface-variant);
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+}
+
+/* Clickable card cursor */
+#email-copy-card { cursor: pointer; }
+
+/* ── Copy toast notification ─────────────────────────────── */
+.copy-toast {
+  position: fixed;
+  bottom: 96px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--md-sys-color-primary);
+  color: #E6E8E7;
+  padding: 14px 24px;
+  border-radius: var(--md-sys-shape-corner-full);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  box-shadow: var(--md-sys-elevation-3);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity     var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard),
+    transform   var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+  white-space: nowrap;
+}
+
+.copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 
 /* ── Platform Badge (project card) ──────────────────────── */
 .platform-badge {
