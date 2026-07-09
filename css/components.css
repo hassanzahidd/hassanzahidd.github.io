@@ -1,43 +1,146 @@
-/* Glassmorphism Classes */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-}
+/* ── Material 3 Components ─────────────────────────────────── */
 
-.glass-card, .skill-category {
+/* ── MD3 Surface / Tonal surface card ─────────────────────── */
+.glass-card,
+.skill-category {
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
-  border-radius: var(--md-sys-radius-xl);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: var(--glass-shadow);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  transition:
+    box-shadow var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard),
+    transform  var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard);
+  box-shadow: var(--md-sys-elevation-1);
   position: relative;
   overflow: hidden;
 }
 
-.spotlight-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y),
-    rgba(0, 209, 193, 0.08),
-    transparent 40%
-  );
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+.glass-card:hover,
+.skill-category:hover {
+  box-shadow: var(--md-sys-elevation-3);
+  border-color: var(--md-sys-color-outline);
 }
 
+/* ── MD3 Spotlight / Hover Ink overlay ────────────────────── */
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 209, 193, 0.09),
+    transparent 45%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard);
+  z-index: 1;
+}
 .spotlight-card:hover::before {
   opacity: 1;
+}
+/* Children must sit above the overlay */
+.spotlight-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── MD3 Chip (skill / tech tag) ──────────────────────────── */
+/* Matches MD3 "Assist chip" or "Filter chip" */
+.skill-tag,
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--md-sys-shape-corner-small);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: 500;
+  letter-spacing: 0.006em;
+  line-height: 20px;
+  border: 1px solid var(--md-sys-color-outline);
+  cursor: default;
+  transition:
+    background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    color            var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    border-color     var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.skill-tag {
+  background: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+}
+.skill-tag:hover {
+  background: color-mix(in srgb, var(--md-sys-color-primary) 12%, transparent);
+  color: var(--md-sys-color-primary);
+  border-color: var(--md-sys-color-primary);
+}
+
+.tech-tag {
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-secondary);
+  border-color: var(--md-sys-color-outline-variant);
+}
+
+/* ── MD3 Divider ─────────────────────────────────────────── */
+.md3-divider {
+  height: 1px;
+  background-color: var(--md-sys-color-outline-variant);
+  border: none;
+  margin: 0;
+}
+
+/* ── MD3 Floating Action Button (Go to Top) ────────────────── */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--md-sys-shape-corner-large); /* MD3 standard FABs have large rounded corners (16px) */
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: var(--md-sys-elevation-3);
+  
+  /* Initial hidden state */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.85);
+  transition:
+    opacity          var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard),
+    visibility   var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard),
+    transform    var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized),
+    box-shadow   var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.scroll-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-to-top-btn:hover {
+  box-shadow: var(--md-sys-elevation-4);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.scroll-to-top-btn:active {
+  box-shadow: var(--md-sys-elevation-2);
+  transform: translateY(0) scale(0.95);
+}
+
+.scroll-to-top-btn .material-symbols-outlined {
+  font-size: 24px;
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
 }
 
