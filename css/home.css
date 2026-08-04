@@ -81,7 +81,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 24px;
+  padding: 14px 28px;
   border-radius: var(--md-sys-shape-corner-full);
   font-family: 'Roboto', sans-serif;
   font-size: var(--md-sys-typescale-label-large-size);
@@ -98,6 +98,9 @@
     background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
     color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
     border-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+  min-height: 48px; /* Minimum touch target size */
+  min-width: 48px;  /* Minimum touch target size */
+  touch-action: manipulation;
   /* State layer */
 }
 .btn::after {
@@ -615,30 +618,178 @@ section h2::after {
   .project-content { padding: 32px; }
 }
 
+/* Mobile-first responsive adjustments */
 @media (max-width: 768px) {
   :root {
-    --spacing-section: 60px;
-    --md-sys-shape-corner-extra-large: 20px;
+    --spacing-section: 40px;
+    --md-sys-shape-corner-extra-large: 16px;
+    --glass-blur: 16px;
   }
 
-  header { height: auto; }
-
-  section h2 {
-    font-size: var(--md-sys-typescale-headline-medium-size);
-    margin-bottom: 24px;
+  /* Consistent mobile typography */
+  body {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
-  .hero-buttons { flex-direction: column; gap: 10px; }
-  .btn { width: 100%; }
+  /* Consistent heading sizes */
+  h1 {
+    font-size: 2rem !important;
+  }
 
-  .about { padding: 32px 20px; margin: 20px 0; }
-  .skill-category { padding: 24px; }
-  .project-content { padding: 28px 20px; }
-  .project-tagline { font-size: 1.3rem; }
+  h2, section h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
-  .contact-card { min-width: 100%; }
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  h4 {
+    font-size: 1.125rem !important;
+  }
+
+  /* Consistent body text */
+  p, .description, .about-text p, 
+  .experience-bullets li, .project-description {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  header { 
+    height: auto; 
+    padding: 12px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Hero section optimizations */
+  .hero {
+    min-height: auto;
+    padding-top: 90px;
+    padding-bottom: 20px;
+  }
+
+  /* Hide scroll indicator on mobile */
+  .scroll-indicator {
+    display: none;
+  }
+
+  .hero-badge {
+    padding: 8px 16px;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 20px;
+    padding: 0 16px;
+  }
+
+  .description {
+    padding: 0 16px;
+    margin-bottom: 32px;
+  }
+
+  .hero-buttons { 
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 16px;
+    align-items: center;
+  }
+  
+  .btn { 
+    width: auto;
+    min-width: 200px;
+    max-width: 320px;
+    padding: 14px 36px;
+    font-size: 1rem;
+  }
+
+  /* About section */
+  .about { 
+    padding: 24px 16px; 
+    margin: 16px 0; 
+    border-radius: 16px;
+  }
+
+  /* Skills section */
+  .skill-category { 
+    padding: 20px; 
+    border-radius: 16px;
+  }
+
+  .skill-tag,
+  .tech-tag {
+    padding: 4px 12px;
+    font-size: 0.8125rem;
+    line-height: 18px;
+  }
 
   .skills-categories.bento-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Project cards */
+  .project-content { 
+    padding: 20px 16px; 
+  }
+  
+  .project-tagline { 
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  /* Contact section */
+  .contact-card { 
+    min-width: 100%; 
+    padding: 24px 20px;
+  }
+
+  /* Scroll to top button */
+  .scroll-to-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  :root {
+    --spacing-section: 32px;
+  }
+
+  .hero {
+    min-height: 70vh;
+    padding-top: 60px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  section h2 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .btn {
+    padding: 14px 20px;
+  }
+
+  .skill-tag, .tech-tag {
+    padding: 6px 12px;
+    font-size: 0.875rem;
   }
 }

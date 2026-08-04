@@ -1,0 +1,180 @@
+/* ============================================================
+   Mobile Utilities & Responsive Helpers
+   ============================================================ */
+
+/* Mobile-safe text selection */
+::selection {
+  background: color-mix(in srgb, var(--md-sys-color-primary) 30%, transparent);
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Mobile tap highlight color */
+* {
+  -webkit-tap-highlight-color: rgba(126, 217, 87, 0.2);
+  tap-highlight-color: rgba(126, 217, 87, 0.2);
+}
+
+/* Mobile-safe touch interactions */
+.touch-safe {
+  touch-action: manipulation;
+  user-select: none;
+}
+
+/* Minimum touch target sizes */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Hide elements on mobile */
+.mobile-hidden {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+  .mobile-only {
+    display: block !important;
+  }
+  
+  .mobile-only-flex {
+    display: flex !important;
+  }
+  
+  .mobile-only-inline {
+    display: inline !important;
+  }
+  
+  /* Enhanced mobile typography */
+  .text-mobile-sm {
+    font-size: var(--md-sys-typescale-body-small-size) !important;
+  }
+  
+  .text-mobile-md {
+    font-size: var(--md-sys-typescale-body-medium-size) !important;
+  }
+  
+  .text-mobile-lg {
+    font-size: var(--md-sys-typescale-body-large-size) !important;
+  }
+  
+  /* Mobile spacing utilities */
+  .mobile-mt-0 { margin-top: 0 !important; }
+  .mobile-mt-1 { margin-top: 8px !important; }
+  .mobile-mt-2 { margin-top: 16px !important; }
+  .mobile-mt-3 { margin-top: 24px !important; }
+  .mobile-mt-4 { margin-top: 32px !important; }
+  
+  .mobile-mb-0 { margin-bottom: 0 !important; }
+  .mobile-mb-1 { margin-bottom: 8px !important; }
+  .mobile-mb-2 { margin-bottom: 16px !important; }
+  .mobile-mb-3 { margin-bottom: 24px !important; }
+  .mobile-mb-4 { margin-bottom: 32px !important; }
+  
+  .mobile-p-0 { padding: 0 !important; }
+  .mobile-p-1 { padding: 8px !important; }
+  .mobile-p-2 { padding: 16px !important; }
+  .mobile-p-3 { padding: 24px !important; }
+  .mobile-p-4 { padding: 32px !important; }
+  
+  .mobile-px-1 { padding-left: 8px !important; padding-right: 8px !important; }
+  .mobile-px-2 { padding-left: 16px !important; padding-right: 16px !important; }
+  .mobile-px-3 { padding-left: 24px !important; padding-right: 24px !important; }
+  
+  /* Mobile layout utilities */
+  .mobile-stack {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .mobile-text-center {
+    text-align: center !important;
+  }
+  
+  .mobile-gap-1 { gap: 8px !important; }
+  .mobile-gap-2 { gap: 16px !important; }
+  .mobile-gap-3 { gap: 24px !important; }
+}
+
+/* Desktop-only utilities */
+@media (min-width: 769px) {
+  .desktop-only {
+    display: block !important;
+  }
+  
+  .desktop-only-flex {
+    display: flex !important;
+  }
+  
+  .mobile-only,
+  .mobile-only-flex,
+  .mobile-only-inline {
+    display: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a, a:visited {
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
